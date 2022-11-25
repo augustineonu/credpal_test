@@ -12,3 +12,8 @@ TextStyle smallTitleFont() {
     return TextStyle(fontSize: 28.sp,height: 1.2.h,
                       fontWeight: FontWeight.w900);
   }
+    TextStyle mediumTextFont() {
+    return TextStyle(fontSize: 16.sp,
+    height: 1.2.h,
+                      fontWeight: FontWeight.w900);
+  }
