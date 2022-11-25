@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart' as svg;
 import 'package:shopping_app/src/data/demo_data_provider.dart';
 import 'package:shopping_app/src/values/colors.dart';
 
@@ -22,10 +24,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ScrollController(initialScrollOffset: 0.5);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    final currentWidth =  MediaQuery.of(context).size.width;
+
+ 
+    return
+    
+    
+     Scaffold(
         body: CustomScrollView(
       slivers: <Widget>[
         const AppBarWidget(),
+        
         SliverToBoxAdapter(
           child: Row(
             children: [
@@ -39,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: const BoxDecoration(
                   color: ColorPallete.fillColor,
                 ),
-                child: Center(child: SvgPicture.asset('assets/svg/scan.svg')),
+                child:
+                    Center(child: svg.SvgPicture.asset('assets/svg/scan.svg')),
               ),
             ],
           ),
@@ -48,9 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             delegate: SliverChildListDelegate([
           Container(
             height: 414.h,
-            
             color: const Color.fromARGB(255, 209, 215, 247),
-
             child: GridView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
@@ -66,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   final product = products[index];
                   return InkWell(
                       onTap: () {
-                        print("This is index $index");
+                        log("This is index $index");
                       },
                       child: ProductContainer(
                         productImage: product.productImage,
@@ -125,4 +134,3 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
   }
 }
-
